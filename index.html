@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stealth Squad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black; /* Set entire background to black */
+            color: gold; /* Set all text to gold */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: black; /* Set container background to black */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background-color: black; /* Set header background to black */
+            color: gold; /* Set header text to gold */
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: black; /* Set nav background to black */
+        }
+        nav a {
+            color: gold; /* Set nav link color to gold */
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575656;
+        }
+        footer {
+            background-color: black; /* Set footer background to black */
+            color: gold; /* Set footer text color to gold */
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stealth Squad</h1>
+        <p>Solving Mysteries, One Clue at a Time!</p>
+    </header>
+    <div class="container">
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+            <div id="loginError" class="error hidden">Invalid username or password!</div>
+        </div>
+        <div id="mainContent" class="hidden">
+            <nav>
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('about')">About</a>
+                <a href="#" onclick="showPage('detectiveAnthem')">Detective Anthem</a>
+                <a href="#" onclick="showPage('cases')">Our Cases</a>
+                <a href="#" onclick="showPage('latest-news')">Latest News</a>
+                <a href="#" onclick="showPage('team')">The Team</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+                <a href="#" onclick="showPage('currentUsers')">Current Users</a>
+            </nav>
+
+            <div id="home" class="hidden">
+                <h2>Welcome to the Stealth Squad!</h2>
+                <p>We are a team of young detectives dedicated to solving the most perplexing mysteries. Join us on our thrilling adventures and become part of our detective family!</p>
+            </div>
+            <div id="about" class="hidden">
+                <h2>About Us</h2>
+                <p>We are a team of dedicated, sharp-minded individuals specializing in thrilling missions and detective work. United by curiosity and a knack for solving mysteries, we operate with precision and stealth, using our unique skills to crack even the toughest cases. Whether it's gathering intel or uncovering secrets, we always complete your missions with style and ingenuity.</p>
+            </div>
+            <div id="detectiveAnthem" class="hidden">
+                <h2>Detective Anthem</h2>
+                <p>In the shadows, where secrets hide,</p>
+                <p>Our vigilance is our guiding light.</p>
+                <p>With courage and honor, we stand tall,</p>
+                <p>To uphold justice for one and all.</p>
+                <p>From the cobbled streets to grand halls,</p>
+                <p>We answer the call wherever it falls.</p>
+                <p>Piecing the puzzle, every clue in hand,</p>
+                <p>We seek the truth, across this land.</p>
+                <p>For those in need, we are the shield,</p>
+                <p>In pursuit of justice, we never yield.</p>
+                <p>With minds sharp and hearts so brave,</p>
+                <p>We honor the oath we solemnly gave.</p>
+                <p>Through trials and doubts, we forge ahead,</p>
+                <p>By the principles of truth, we are led.</p>
+                <p>With unwavering resolve, our duty clear,</p>
+                <p>We stand as guardians, year after year.</p>
+            </div>
+            <div id="cases" class="hidden">
+                <h2>Our Cases & News</h2>
+                <p>From missing pets to secret codes, we've cracked the toughest cases. Check out our case files and see how we did it!</p>
+                <p>Case #1:</p>
+                <p>Our team successfully stopped Keshav's nefarious attempts to infiltrate our games and disrupt the peace. Our mission, known as Operation Shield, showcased the exceptional skills and coordination of our agents. Led by the strategic brilliance of Agent Galactic (Gautham), our team executed a flawless plan to outsmart the mischievous Keshav. Agent Shadow Phoenix (Ayaan) masterfully gathered intelligence without being detected, while Agent Daggonz (Dhruv) analyzed complex data to predict Keshav's moves. Agent Titan (Thanveer) ensured we were equipped with cutting-edge technology, and Agent Helios (Havish) gathered crucial evidence to build a strong case against Keshav.</p>
+                <p>Thanks to our collective efforts, Keshav's plans were foiled, ensuring that our games continued smoothly and without interruption. The successful completion of Operation Shield not only highlights our dedication and expertise but also serves as a stern warning to any future troublemakers. Together, we have proven that no challenge is too great when we work as a cohesive unit, safeguarding the integrity of our games and the enjoyment of all participants.</p>
+            </div>
+            <div id="team" class="hidden">
+                <h2>The Team</h2>
+                <p>Meet the brave and brilliant members of the Stealth Squad! Each detective brings unique skills to the team, making us unstoppable.</p>
+                <p>1. Ayaan:</p> 
+                <p>Role: Stealth Operative</p>
+                <p>Code Name: Agent Shadow Phoenix (Or Agent S)</p>
+                <p>Ayaan, known as Agent Shadow Phoenix is a master of covert operations, known by the code name Agent "X." This stealth operative specializes in intelligence gathering and remaining undetected while executing missions. With expertise in subtlety and finesse, Agent Shadow Phoenix uses advanced vehicles like the SR 120 and the Shadow Scoot 7 to navigate the field efficiently.</p>
+                <p>2. Dhruv:</p> 
+                <p>Role: Analyst</p>
+                <p>Code Name: Agent Daggonz (Or Agent Z)</p>
+                <p>Dhruv, known as Agent Daggonz and coded as Agent "Z," is a top-tier analyst renowned for his ability to delve deep into complex datasets and uncover hidden patterns. Utilizing his analytical prowess, he adeptly monitors and interprets trends to foresee future developments. Agent Daggonz is also skilled in integrating data from multiple sources, forming a comprehensive understanding of any given situation. His trusted vehicle, the SR 07, supports him in executing his analytical missions with precision and efficiency.</p>
+                <p>3. Gautham:</p> 
+                <p>Role: Strategist</p>
+                <p>Code Name: Agent Galactic (Or Agent G)</p>
+                <p>Gautham, known as Agent Galactic and coded as Agent "C," is a brilliant strategist responsible for developing detailed strategies and plans for each mission. With a keen eye for coordination, he ensures the team operates smoothly and efficiently. Utilizing advanced vehicles like the Shadow Scoot 5 and the SR 20, Agent Galactic navigates the complexities of each mission with precision and foresight.</p>
+                <p>4. Havish:</p> 
+                <p>Role: Detective</p>
+                <p>Code Name: Agent Helios (Or Agent S)</p>
+                <p>Havish, known as Agent Helios and coded as Agent "S," is a skilled detective who gathers evidence to solve cases. He meticulously investigates crime scenes, interviews witnesses, and reviews reports. Agent Helios provides valuable insights and recommendations based on the gathered evidence, working closely with the Analyst to ensure comprehensive case analysis. With advanced vehicles like the SR 100 and the Shadow Scoot 4, he navigates various terrains to carry out his investigative missions efficiently.</p>
+                <p>5. Thanveer:</p> 
+                <p>Role: Tech Specialist</p>
+                <p>Code Name: Agent Titan (Or Agent N)</p>
+                <p>Thanveer, known as Agent Titan and coded as Agent "N," is the team's tech specialist. He handles all technological aspects of missions, managing gadgets, communication devices, and security systems. With a keen eye for detail, Agent Titan ensures the team has all the necessary tech tools for success. His trusted vehicle, the SR 30, allows him to navigate missions with efficiency and precision.</p>
+            </div>
+            <div id="latest-news" class="hidden">
+                <h2>Latest News</h2>
+                <p>Check out our Latest News!</p>
+<b> <p> News #1  Vaishnavi gets kicked out of the SS! </p> </b>
+                <p>In a recent development, Vaishnavi was removed from the Stealth Squad due to a lack of interest and not taking her role seriously. Despite the serious nature of our missions, Vaishnavi was frequently found joking around and not maintaining the level of seriousness required for the squad. As a result, it was decided that she could no longer be part of the team.</p>
+                <p>Our team remains committed to maintaining a high level of dedication and professionalism to ensure the success of our missions and the safety of all participants. Moving forward, we will continue to focus on our objective of helping people solve unsolved cases.</p>
+            </div>
+                <div id="contact" class="hidden">
+                <h2>Contact Us</h2>
+                <p>Have a mystery that needs solving? Reach out to us, and we’ll get on the case!</p> 
+                <p>Ayaan: ayaan.rajp@gmail.com</p>
+                <p>Dhruv: dhruv.anoopmenon@sishugriha.in</p>
+                <p>Gautham: gautham.vishwanathan13@gmail.com</p>
+                <p>Havish: mummadihavishreddy@gmail.com</p>
+                <p>Thanveer: thanveershiraz@gmail.com</p>
+            </div>
+            <div id="currentUsers" class="hidden">
+                <h2>Current Users:</h2>
+                <p>Ayaan</p>
+                <p>Dhruv</p>
+                <p>Gautham</p>
+                <p>Havish</p>
+                <p>Thanveer</p>
+            </div>
+        </div>
+    </div>
+    <footer style="text-align: center;">
+    <p>&copy; 2025 Stealth Squad-Kid Detectives. All rights reserved.</p>
+</footer>
+<script>
+    const users = [
+        { username: 'Ayaan', password: 'SS123', role: 'user' },
+        { username: 'Dhruv', password: 'SS123', role: 'user' },
+        { username: 'Gautham', password: 'SS123', role: 'admin' },
+        { username: 'Havish', password: 'SS123', role: 'user' },
+        { username: 'Thanveer', password: 'SS123', role: 'user' }
+    ];
+
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+            showPage('home');
+            if (user.role === 'admin') {
+                document.getElementById('manageUsers').classList.remove('hidden');
+            } else {
+                document.getElementById('manageUsers').classList.add('hidden');
+            }
+            updateUserList();
+        } else {
+            document.getElementById('loginError').classList.remove('hidden');
+        }
+    }
+
+    function showPage(page) {
+        document.querySelectorAll('#mainContent > div').forEach(div => {
+            div.classList.add('hidden');
+        });
+        document.getElementById(page).classList.remove('hidden');
+    }
+
+    function addUser() {
+        const username = document.getElementById('addUsername').value;
+        const password = document.getElementById('addPassword').value;
+        if (username && password && !users.some(user => user.username === username)) {
+            users.push({ username, password, role: 'user' });
+            updateUserList();
+            document.getElementById('addUsername').value = '';
+            document.getElementById('addPassword').value = '';
+        }
+    }
+
+    function deleteUser() {
+        const username = document.getElementById('deleteUsername').value;
+        const index = users.findIndex(user => user.username === username);
+        if (index !== -1) {
+            users.splice(index, 1);
+            updateUserList();
+            document.getElementById('deleteUsername').value = '';
+        }
+    }
+
+</script>
+</body>
+</html>
+
