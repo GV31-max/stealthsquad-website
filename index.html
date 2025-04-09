@@ -180,60 +180,42 @@
 </footer>
 <script>
     const users = [
-        { username: 'Ayaan', password: 'Voltage1', role: 'user' },
-        { username: 'Dhruv', password: 'SS123', role: 'user' },
-        { username: 'Gautham', password: 'SS123', role: 'admin' },
-        { username: 'Havish', password: 'SS123', role: 'user' },
-        { username: 'Thanveer', password: 'SS123', role: 'user' }
-    ];
+    { username: 'Ayaan', getPassword: () => 'Voltage1', role: 'user' },
+    { username: 'Dhruv', getPassword: () => 'DynamicPassword123', role: 'user' },
+    { username: 'Gautham', getPassword: () => 'AnotherDynamicPass', role: 'user' },
+    { username: 'Havish', getPassword: () => 'Secret456', role: 'user' },
+    { username: 'Thanveer', getPassword: () => 'UniquePass789', role: 'user' }
+];
 
-    function login() {
-        const username = document.getElementById('username').value;
-        const user = users.find(user => user.username === username && user.password === password);
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value; // Capture password input
 
-        if (user) {
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('mainContent').classList.remove('hidden');
-            showPage('home');
-            if (user.role === 'admin') {
-                document.getElementById('manageUsers').classList.remove('hidden');
-            } else {
-                document.getElementById('manageUsers').classList.add('hidden');
-            }
-            updateUserList();
+    // Fetch the user and validate username/password dynamically
+    const user = users.find(user => user.username === username && user.getPassword() === password);
+
+    if (user) {
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('mainContent').classList.remove('hidden');
+        showPage('home');
+
+        if (user.role === 'admin') {
+            document.getElementById('manageUsers').classList.remove('hidden');
         } else {
-            document.getElementById('loginError').classList.remove('hidden');
+            document.getElementById('manageUsers').classList.add('hidden');
         }
+        updateUserList();
+    } else {
+        document.getElementById('loginError').classList.remove('hidden');
     }
+}
 
-    function showPage(page) {
-        document.querySelectorAll('#mainContent > div').forEach(div => {
-            div.classList.add('hidden');
-        });
-        document.getElementById(page).classList.remove('hidden');
-    }
-
-    function addUser() {
-        const username = document.getElementById('addUsername').value;
-        const password = document.getElementById('addPassword').value;
-        if (username && password && !users.some(user => user.username === username)) {
-            users.push({ username, password, role: 'user' });
-            updateUserList();
-            document.getElementById('addUsername').value = '';
-            document.getElementById('addPassword').value = '';
-        }
-    }
-
-    function deleteUser() {
-        const username = document.getElementById('deleteUsername').value;
-        const index = users.findIndex(user => user.username === username);
-        if (index !== -1) {
-            users.splice(index, 1);
-            updateUserList();
-            document.getElementById('deleteUsername').value = '';
-        }
-    }
-
+function showPage(page) {
+    document.querySelectorAll('#mainContent > div').forEach(div => {
+        div.classList.add('hidden');
+    });
+    document.getElementById(page).classList.remove('hidden');
+}
 </script>
 </body>
 </html>
